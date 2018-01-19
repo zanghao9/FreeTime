@@ -1,0 +1,16 @@
+--添加依赖项所需要的包
+Install-package ninject -version 3.0.1.10 -projectname sportsstore.webui
+Install-package ninject.web.common -version 3.0.0.7 -projectname sportsstore.webui
+Install-package ninject.mvc3 -version 3.0.0.6 -projectname sportsstore.webui
+Install-package ninject -version 3.0.1.10 -projectname sportsstore.unittests
+Install-package ninject.web.common -version 3.0.0.7 -projectname sportsstore.unittests
+Install-package ninject.mvc3 -version 3.0.0.6 -projectname sportsstore.unittests
+Install-package Moq -version 4.1.1309.1617 -projectname sportsstore.webui
+Install-package Moq -version 4.1.1309.1617 -projectname sportsstore.unittests
+install-package microsoft.aspnet.mvc -version 5.0.0 -projectname sportsstore.unittests
+install-package microsoft.aspnet.mvc -version 5.0.0 -projectname sportsstore.Domain
+
+
+--添加EF包
+install-package entityframework -projectname sportsstore.domain
+install-package entityframework -projectname sportsstore.webui
