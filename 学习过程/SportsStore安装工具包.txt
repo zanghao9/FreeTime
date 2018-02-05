@@ -9,7 +9,8 @@ Install-package Moq -version 4.1.1309.1617 -projectname sportsstore.webui
 Install-package Moq -version 4.1.1309.1617 -projectname sportsstore.unittests
 install-package microsoft.aspnet.mvc -version 5.0.0 -projectname sportsstore.unittests
 install-package microsoft.aspnet.mvc -version 5.0.0 -projectname sportsstore.Domain
-
+--2018-2-5
+Install-package -version 3.0.0 bootstrap -projectname SportsStore.Webui
 
 --Ìí¼ÓEF°ü
 install-package entityframework -projectname sportsstore.domain
