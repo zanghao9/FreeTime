@@ -5,35 +5,33 @@ using System.Web;
 using System.Web.Mvc;
 using SportsStore.Domain.Entities;
 using SportsStore.Domain.Abstract;
+using SportsStore.WebUI.Models;
 
 namespace SportsStore.WebUI.Controllers
 {
     public class ProductController : Controller
     {
-        //public ActionResult List()
-        //{
-        //    var db = new EFDbContext();
-        //    var query = from b in db.products
-        //                orderby b.Name
-        //                select b;
-        //    foreach (var item in query)
-        //    {
-        //        Console.WriteLine(item.Name);
-        //    }
-        //    return View();
-        //}
-
-
         private IProductsRepository repository;
+        public int PageSize = 4;
 
         public ProductController(IProductsRepository productRepository)
         {
             this.repository = productRepository;
         }
 
-        public ViewResult List()
+        public ViewResult List(int page = 1)
         {
-            return View(repository.Products);
+            ProductListViewModel model = new ProductListViewModel
+            {
+                Products = repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = repository.Products.Count()
+                }
+            };
+            return View(model);
         }
     }
 }
